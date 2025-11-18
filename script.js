@@ -1,70 +1,48 @@
+// Declare constants for type of key
+
 const numKey = '0123456789';
 const opKey = '+-×÷';
 
+// Initiate argument and operator variables
 let argA = '';
 let argB = '';
 let op = '';
 
-// const buttons = document.querySelector("#buttons");
-// buttons.addEventListener("click", event => {
-//     if (event.target.nodeName == "button") {
-//         screen.textContent = event.target.textContent;
-//         console.log(event.target.textContent);
-//     }
-// })
 
+// Create variable for screen content, initialize with empty string
 const screen = document.querySelector('#screen');
 screen.textContent = '';
 
+// Button variables and event listeners
 const nine = document.querySelector('#nine');
-nine.addEventListener('click', () => {
-    input('9');
-});
+nine.addEventListener('click', () => input('9'));
 
 const eight = document.querySelector('#eight');
-eight.addEventListener('click', () => {
-    input('8');
-});
+eight.addEventListener('click', () => input('8'));
 
 const seven = document.querySelector('#seven');
-seven.addEventListener('click', () => {
-    input('7');
-});
+seven.addEventListener('click', () => input('7'));
 
 const six = document.querySelector('#six');
-six.addEventListener('click', () => {
-    input('6');
-});
+six.addEventListener('click', () => input('6'));
 
 const five = document.querySelector('#five');
-five.addEventListener('click', () => {
-    input('5');
-});
+five.addEventListener('click', () => input('5'));
 
 const four = document.querySelector('#four');
-four.addEventListener('click', () => {
-    input('4');
-});
+four.addEventListener('click', () => input('4'));
 
 const three = document.querySelector('#three');
-three.addEventListener('click', () => {
-    input('3');
-});
+three.addEventListener('click', () => input('3'));
 
 const two = document.querySelector('#two');
-two.addEventListener('click', () => {
-    input('2');
-});
+two.addEventListener('click', () => input('2'));
 
 const one = document.querySelector('#one');
-one.addEventListener('click', () => {
-    input('1');
-});
+one.addEventListener('click', () => input('1'));
 
 const zero = document.querySelector('#zero');
-zero.addEventListener('click', () => {
-    input('0');
-});
+zero.addEventListener('click', () => input('0'));
 
 const ac = document.querySelector('#ac-btn');
 ac.addEventListener('click', () => {
@@ -89,6 +67,13 @@ multiplySym.addEventListener('click', () => input('×'));
 const divideSym = document.querySelector('#divide');
 divideSym.addEventListener('click', () => input('÷'));
 
+const point = document.querySelector('#point');
+point.addEventListener('click', () => input('.'));
+
+const posNeg = document.querySelector('#posneg');
+posNeg.addEventListener('click', () => input('±'));
+
+// Create functions for each of the math operations
 function add(a, b) {
     return a + b;
 }
@@ -105,15 +90,20 @@ function divide(a, b) {
     return a / b;
 }
 
+// Create functions for '.' and '±'
+
+
+// Function which calls up math operations depending on operator
 function operate(a, b, op) {
-    a = parseInt(a);
-    b = parseInt(b);
+    a = parseFloat(a);
+    b = parseFloat(b);
     if (op == '+') return add (a, b);
     if (op == '-') return subtract (a, b);
     if (op == '×') return multiply (a, b);
     if (op == '÷') return divide (a, b);
 }
 
+// Function which handles input 'a'
 function input(a) {
     if(numKey.includes(a) && op == '' && argB =='') {
         argA += a;
@@ -122,7 +112,7 @@ function input(a) {
     } else if(numKey.includes(a) && op != '') {
         argB += a;
         screen.textContent = argA + op + argB;
-    } else if(opKey.includes(a) && argB == '') {
+    } else if(opKey.includes(a) && argB == '' && argA != '') {
         op = a;
         screen.textContent = argA + op;
     } else if(a === '=') {
@@ -135,10 +125,21 @@ function input(a) {
         argB = '';
         op = a;
         screen.textContent = argA + op;
+    } else if(a === '±') {
+        if(op != '') {
+            argB = parseFloat(argB) * (-1);
+            screen.textContent = argA + op + argB;
+        } else {
+            argA = parseFloat(argA) * (-1);
+            screen.textContent = argA;
+        }
+    } else if(a === '.') {
+        if(op != '') {
+            argB += '.';
+            screen.textContent = argA + op + argB;
+        } else {
+            argA += '.';
+            screen.textContent = argA;
+        }
     }
-}
-
-function calc() {
-    argA = screen.textContent;
-    console.log(argA);
 }
