@@ -1,0 +1,85 @@
+body {
+    font-family: "Bytesized", "Futura", sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+#calc {
+    width: 300px;
+    height: 500px;
+    margin: auto;
+    background-color: #000000;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#screen {
+    width: 260px;
+    height: 70px;
+    margin: 30px 20px;
+    padding: 10px;
+    background-color: #e7ffe7;
+    color: #000000;
+    text-align: right;
+    font-size: 40px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+#buttons {
+    width: 260px;
+    height: 300px;
+    margin: 20px;
+    /* border-radius: 10px; */
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    gap: 5px;
+    color: #e7ffe7;
+}
+
+#numbers {
+    flex: 3 0 auto;
+    width: 180px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    gap: 5px;
+}
+
+#operators {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ac-btn {
+    flex: 3 0 auto;
+    width: 160px;
+    height: 50px;
+    background-color: #365b36;
+    border-radius: 5px;
+    margin: 0;
+    padding: 5px;
+}
+
+.num-btn {
+    width: 40px;
+    /* height: 70px; */
+    border-radius: 5px;
+    padding: 5px;
+    flex: 1 0 auto;
+    background-color: #5a995a;
+}
+
+.op-btn {
+    width: 50px;
+    /* height: 70px; */
+    border-radius: 5px;
+    padding: 5px;
+    flex: 1 0 auto;
+    background-color: #5a995a;
+    gap: 5px;
+}
