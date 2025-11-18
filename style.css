@@ -5,6 +5,16 @@ body {
     background-color: #e4ffe5;
 }
 
+button {
+    all: unset;
+    box-shadow: 0 3px #bebe06;
+}
+
+button:active {
+    box-shadow: 0 1px #bebe06;
+    transform: translateY(2px);
+}
+
 #calc {
     width: 300px;
     height: 500px;
@@ -35,7 +45,7 @@ body {
     /* border-radius: 10px; */
     display: flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     gap: 5px;
     color: #e7ffe7;
 }
@@ -44,9 +54,9 @@ body {
     flex: 3 0 auto;
     width: 180px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row-reverse;
-    gap: 7px;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 #operators {
@@ -56,34 +66,34 @@ body {
     gap: 7px;
 }
 
-.ac-btn {
+#ac-btn {
     flex: 3 0 auto;
     width: 160px;
-    height: 50px;
+    /* height: 50px; */
     background-color: #365b36;
     border-radius: 5px;
     margin: 0;
     padding: 5px;
-    box-shadow: 0 3px #bebe06;
+    /* box-shadow: 0 3px #bebe06; */
 }
 
 .num-btn {
     width: 40px;
-    /* height: 70px; */
+    /* height: 40px; */
     border-radius: 5px;
     padding: 5px;
     flex: 1 0 auto;
     background-color: #5a995a;
-    box-shadow: 0 3px #bebe06;
+    /* box-shadow: 0 3px #bebe06; */
 }
 
 .op-btn {
     width: 50px;
-    /* height: 70px; */
+    /* height: 40px; */
     border-radius: 5px;
     padding: 5px;
     flex: 1 0 auto;
     background-color: #5a995a;
     /* gap: 7px; */
-    box-shadow: 0 3px #bebe06;
+    /* box-shadow: 0 3px #bebe06; */
 }
