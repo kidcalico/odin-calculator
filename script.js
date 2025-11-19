@@ -110,6 +110,26 @@ function operate(a, b, op) {
     if (op == '÷') return divide (a, b);
 }
 
+// Function which limits numbers displayed
+function scrLimit() {
+    const scrContent = argA + op + argB;
+    console.log(scrContent);
+    if(scrContent.length > 11) {
+        screen.textContent = scrContent.slice(0, 11);
+    }
+}
+
+// Function which limits decimal places
+function decLimit() {
+    if(argA.includes('.')) {
+        argA = Number.parseFloat(argA).toFixed(3);
+    } 
+    if (argB.includes('.')) {
+        argB = argB.toFixed(3);
+
+    }
+}
+
 // Function which handles input 'a'
 function input(a) {
     if(numKey.includes(a) && op == '' && argB =='') {
@@ -132,10 +152,10 @@ function input(a) {
         op = a;
         screen.textContent = argA + op;
     } else if(a === '±') {
-        if(op != '') {
+        if(argB != '') {
             argB = parseFloat(argB) * (-1);
             screen.textContent = argA + op + argB;
-        } else {
+        } else if(argA != '') {
             argA = parseFloat(argA) * (-1);
             screen.textContent = argA;
         }
@@ -147,7 +167,7 @@ function input(a) {
             argA += '.';
             screen.textContent = argA;
         } else if(argA == '') {
-            argA += '0.1';
+            argA += '0.';
             screen.textContent = argA;
         }
     } else if(a === '%') {
@@ -167,4 +187,6 @@ function input(a) {
             screen.textContent = argA;
         }
     }
+    decLimit();
+    scrLimit();
 }
