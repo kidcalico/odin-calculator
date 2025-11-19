@@ -108,8 +108,6 @@ function operate(a, b, op) {
 // Function which refreshes display and limits display string length
 function scrLimit() {
     const scrContent = argA + op + argB;
-    console.log("argA: " + argA + " op: " + op + " argB: " + argB);
-    console.log("scrcont: " + typeof scrContent)
     screen.textContent = scrContent;
     if(scrContent.length > 11) {
         screen.textContent = scrContent.slice(0, 11);

@@ -42,7 +42,6 @@ button:active {
     width: 260px;
     height: 300px;
     margin: 20px;
-    /* border-radius: 10px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -68,34 +67,19 @@ button:active {
 
 #ac-btn,
 #backspace {
-    /* flex: 1 0 auto; */
-    /* width: 160px; */
-    /* height: 50px; */
     background-color: #365b36;
     border-radius: 5px;
     margin: 0;
     padding: 5px;
-    /* box-shadow: 0 3px #bebe06; */
 }
-
-/* .num-btn {
-    width: 50px;
-    border-radius: 5px;
-    padding: 5px;
-    flex: 1 0 auto;
-    background-color: #5a995a;
-} */
 
 .num-btn,
 .op-btn {
     width: 50px;
-    /* height: 40px; */
     border-radius: 5px;
     padding: 5px;
     flex: 1 0 auto;
     background-color: #5a995a;
-    /* gap: 7px; */
-    /* box-shadow: 0 3px #bebe06; */
 }
 
 #credit {
