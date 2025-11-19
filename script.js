@@ -140,11 +140,14 @@ function input(a) {
             screen.textContent = argA;
         }
     } else if(a === '.') {
-        if(op != '') {
+        if(argB != '' && !argB.includes('.')) {
             argB += '.';
             screen.textContent = argA + op + argB;
-        } else {
+        } else if(argA != '' && argB == '' && !argA.includes('.')) {
             argA += '.';
+            screen.textContent = argA;
+        } else if(argA == '') {
+            argA += '0.1';
             screen.textContent = argA;
         }
     } else if(a === '%') {
