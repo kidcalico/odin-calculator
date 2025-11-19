@@ -97,3 +97,19 @@ button:active {
     /* gap: 7px; */
     /* box-shadow: 0 3px #bebe06; */
 }
+
+#credit {
+    margin: 10px;
+    color: #5a995a;
+    font-size: 14px;
+}
+
+#credit > a {
+    text-decoration: none;
+    color: #365b36;
+}
+
+#credit > a:hover {
+    text-decoration: none;
+    color: #5a995a;
+}
