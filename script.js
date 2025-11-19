@@ -120,15 +120,15 @@ function scrLimit() {
 }
 
 // Function which limits decimal places
-function decLimit() {
-    if(argA.includes('.')) {
-        argA = Number.parseFloat(argA).toFixed(3);
-    } 
-    if (argB.includes('.')) {
-        argB = argB.toFixed(3);
+// function decLimit() {
+//     if(argA.includes('.')) {
+//         argA = Number.parseFloat(argA).toFixed(3);
+//     } 
+//     if (argB.includes('.')) {
+//         argB = argB.toFixed(3);
 
-    }
-}
+//     }
+// }
 
 // Function which handles input 'a'
 function input(a) {
@@ -187,6 +187,6 @@ function input(a) {
             screen.textContent = argA;
         }
     }
-    decLimit();
+    // decLimit();
     scrLimit();
 }
