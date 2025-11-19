@@ -8,7 +8,6 @@ let argA = '';
 let argB = '';
 let op = '';
 
-
 // Create variable for screen content, initialize with empty string
 const screen = document.querySelector('#screen');
 screen.textContent = '';
@@ -52,8 +51,11 @@ ac.addEventListener('click', () => {
     op = '';
 });
 
-const equalSym = document.querySelector('#equals');
-equalSym.addEventListener('click', () => input('='));
+const backspace = document.querySelector('#backspace');
+backspace.addEventListener('click', () => input('⬅︎'));
+
+const percent = document.querySelector('#percent');
+percent.addEventListener('click', () => input('%'));
 
 const plusSym = document.querySelector('#plus');
 plusSym.addEventListener('click', () => input('+'));
@@ -66,6 +68,9 @@ multiplySym.addEventListener('click', () => input('×'));
 
 const divideSym = document.querySelector('#divide');
 divideSym.addEventListener('click', () => input('÷'));
+
+const equalSym = document.querySelector('#equals');
+equalSym.addEventListener('click', () => input('='));
 
 const point = document.querySelector('#point');
 point.addEventListener('click', () => input('.'));
@@ -90,8 +95,10 @@ function divide(a, b) {
     return a / b;
 }
 
-// Create functions for '.' and '±'
-
+function makePercent(a) {
+    a = parseFloat(a);
+    return a / 100;
+}
 
 // Function which calls up math operations depending on operator
 function operate(a, b, op) {
@@ -108,7 +115,6 @@ function input(a) {
     if(numKey.includes(a) && op == '' && argB =='') {
         argA += a;
         screen.textContent = argA;
-        console.log(argA);
     } else if(numKey.includes(a) && op != '') {
         argB += a;
         screen.textContent = argA + op + argB;
@@ -139,6 +145,22 @@ function input(a) {
             screen.textContent = argA + op + argB;
         } else {
             argA += '.';
+            screen.textContent = argA;
+        }
+    } else if(a === '%') {
+        if(argB != '') {
+            argB = makePercent(argB);
+            screen.textContent = argA + op + argB;
+        } else if (argA != '') {
+            argA = makePercent(argA);
+            screen.textContent = argA;
+        }
+    } else if(a === '⬅︎') {
+        if(argB != '') {
+            argB = argB.slice(0, -1);
+            screen.textContent = argA + op + argB;
+        } else if (argA != '') {
+            argA = argA.slice(0, -1);
             screen.textContent = argA;
         }
     }
