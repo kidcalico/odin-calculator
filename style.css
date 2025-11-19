@@ -27,8 +27,8 @@ button:active {
 
 #screen {
     width: 260px;
-    height: 70px;
-    margin: 30px 20px;
+    height: 90px;
+    margin: 30px 20px 5px;
     padding: 10px;
     background-color: #e7ffe7;
     color: #000000;
