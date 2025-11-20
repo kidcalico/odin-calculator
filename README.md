@@ -5,4 +5,4 @@ Foundations Course. After completing it I realized I made it through
 without using a single object in this project, so perhaps soon I will come back
 and refactor.
 
-[Live Preview](https://kidcalic.github.io/odin-calculator/)
+[Live Preview](https://kidcalico.github.io/odin-calculator/)
