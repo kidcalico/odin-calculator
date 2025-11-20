@@ -128,7 +128,9 @@ function decLimit() {
 
 // Function which handles input 'a'
 function input(a) {
-    if(numKey.includes(a) && op == '' && argB == '') {
+    if(a === '0' && argA === '') {
+        return;
+    } else if(numKey.includes(a) && op == '' && argB == '') {
         argA += a;
     } else if(opKey.includes(a) && argB == '' && argA != '') {
         op = a;
@@ -137,6 +139,8 @@ function input(a) {
         argA = '';
         argB = '';
         op = '';
+        return;
+    } else if(a === '0' && op != '' && argB === '') {
         return;
     } else if(numKey.includes(a) && op != '') {
         argB += a;
