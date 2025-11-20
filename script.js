@@ -130,13 +130,10 @@ function decLimit() {
 function input(a) {
     if(numKey.includes(a) && op == '' && argB == '') {
         argA += a;
-        scrLimit();
     } else if(numKey.includes(a) && op != '') {
         argB += a;
-        scrLimit();
     } else if(opKey.includes(a) && argB == '' && argA != '') {
         op = a;
-        scrLimit();
     } else if(a === '=' && op === '÷' && argB === '0') {
         screen.textContent = "To infinity and beyond!";
     } else if(a === '=') {
@@ -144,19 +141,16 @@ function input(a) {
         argB = '';
         op = '';
         screen.textContent = argA;
-        argA = '';
     } else if(opKey.includes(a) && op != '') {
         argA = operate(argA, argB, op);
         argB = '';
         op = a;
-        scrLimit();
     } else if(a === '±') {
         if(argB != '') {
             argB = parseFloat(argB) * (-1);
         } else if(argA != '') {
             argA = parseFloat(argA) * (-1);
         }
-        scrLimit();
     } else if(a === '.') {
         if(argB != '' && !argB.includes('.')) {
             argB += '.';
@@ -165,26 +159,23 @@ function input(a) {
         } else if(argA == '') {
             argA += '0.';
         }
-        scrLimit();
     } else if(a === '%') {
         if(argB != '') {
             argB = makePercent(argB);
         } else if (argA != '') {
             argA = makePercent(argA);
         }
-        scrLimit();
     } else if(a === '⬅︎') {
         if(argB != '') {
             argB = argB.slice(0, -1);
         } else if (argA != '') {
             argA = argA.slice(0, -1);
         }
-        scrLimit();
     } else if(a === 'ac') {
         argA = '';
         argB = '';
         op = '';
-        scrLimit();
     }
     decLimit();
+    scrLimit();
 }
