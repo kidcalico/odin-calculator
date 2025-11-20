@@ -110,7 +110,7 @@ function scrLimit() {
     const scrContent = argA + op + argB;
     screen.textContent = scrContent;
     if(scrContent.length > 11) {
-        screen.textContent = scrContent.slice(0, 11);
+        screen.textContent = scrContent.slice(0, 11) + '...';
     }
 }
 
@@ -130,12 +130,16 @@ function decLimit() {
 function input(a) {
     if(numKey.includes(a) && op == '' && argB == '') {
         argA += a;
-    } else if(numKey.includes(a) && op != '') {
-        argB += a;
     } else if(opKey.includes(a) && argB == '' && argA != '') {
         op = a;
     } else if(a === '=' && op === '÷' && argB === '0') {
-        screen.textContent = "To infinity and beyond!";
+        screen.textContent = 'To infinity, and beyond!';
+        argA = '';
+        argB = '';
+        op = '';
+        return;
+    } else if(numKey.includes(a) && op != '') {
+        argB += a;
     } else if(a === '=') {
         argA = operate(argA, argB, op);
         argB = '';
