@@ -160,7 +160,9 @@ function input(a) {
             argA = parseFloat(argA) * (-1);
         }
     } else if(a === '.') {
-        if(argB != '' && !argB.includes('.')) {
+        if(op != '' && argB === '') {
+            argB += '0.'
+        } else if(argB != '' && !argB.includes('.')) {
             argB += '.';
         } else if(argA != '' && argB == '' && !argA.includes('.')) {
             argA += '.';
